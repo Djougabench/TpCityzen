@@ -79,14 +79,14 @@ contract Citizen {
         );
         _;
     }
-    
+    ///@dev only major citizens can be added 
     function addYourage(uint _age)public view {
          require (ageCitoyen[_age].age >= 18 ,"you must be 18 years old or more!");
         
      }
      
 
-    /// @dev add citoyen
+    /// @dev worker citizens added
     function setCitoyenWorker(address _addr, uint256 _id)public view onlySage{
      citoyen[ _addr].worker == true ;
      idWorker[ _id].idEnterprise == _id ;
@@ -94,6 +94,7 @@ contract Citizen {
 } 
 
 //L'Etat et les sages peuvent ajouter des citoyens avec un wallet de 100 CITIZEN.
+///@dev joblesss citizens  added
      function setCitoyenJobless(address _address)public view onlySage{
      citoyen[ _address].jobless == true ;
       
